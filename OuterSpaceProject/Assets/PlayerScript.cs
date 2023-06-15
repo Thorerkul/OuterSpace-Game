@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public Rigidbody rb;
     public float speed;
     [Range(0.75f, 1f)]
     public float brakeSpeed;
-    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()

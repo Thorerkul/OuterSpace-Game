@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     public Rigidbody rb;
+    public GameObject sword;
+    public Camera cam;
     public float speed;
     [Range(0.75f, 1f)]
     public float brakeSpeed;
@@ -19,7 +21,18 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButton(0))
+        {
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                sword.transform.LookAt(new Vector3(hit.point.x, sword.transform.position.y, hit.point.z));
+                sword.transform.rotation = Quaternion.Euler(sword.transform.rotation.eulerAngles.x + 90, sword.transform.rotation.eulerAngles.y, sword.transform.rotation.eulerAngles.z);
+            }
+            //sword.transform.rotation = Quaternion.Euler(sword.transform.rotation.eulerAngles.x, sword.transform.rotation.eulerAngles.y, sword.transform.rotation.eulerAngles.z + (100 * Time.deltaTime));
+        }
     }
 
     private void FixedUpdate()
@@ -49,5 +62,3 @@ public class PlayerScript : MonoBehaviour
         }
     }
 }
-//Dumrika
-//Julianduym

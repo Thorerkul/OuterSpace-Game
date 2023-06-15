@@ -49,3 +49,4 @@ public class PlayerScript : MonoBehaviour
         }
     }
 }
+//Dumrika

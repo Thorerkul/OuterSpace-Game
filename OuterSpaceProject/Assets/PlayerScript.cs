@@ -32,7 +32,7 @@ public class PlayerScript : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, 0, vertical * speed);
         } else
         {
-            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z * 0.9f);
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z * brakeSpeed);
         }
         if (horizontal != 0)
         {
@@ -40,7 +40,7 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
-            rb.velocity = new Vector3(rb.velocity.x * 0.9f, 0, rb.velocity.z);
+            rb.velocity = new Vector3(rb.velocity.x * brakeSpeed, 0, rb.velocity.z);
         }
 
         if (horizontal != 0 && vertical != 0)

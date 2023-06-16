@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     public Rigidbody rb;
     public GameObject sword;
     public Animator animator;
+    public GameObject mesh;
     public Camera cam;
     public float speed;
     [Range(0.75f, 1f)]
@@ -42,10 +43,35 @@ public class PlayerScript : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         float horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (horizontal > 0)
+        // str = horizontal.ToString() + ", " + vertical.ToString();
+        //Debug.Log(str);
+        if (horizontal > 0f && vertical > 0)
         {
-            return;
+            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 45 + 180, transform.rotation.eulerAngles.z);
+        } else if (horizontal < 0f && vertical > 0)
+        {
+            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, -45 + 180, transform.rotation.eulerAngles.z);
+        } else if (horizontal > 0f && vertical < 0)
+        {
+            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 135 + 180, transform.rotation.eulerAngles.z);
+        } else if (horizontal < 0f && vertical < 0)
+        {
+            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, -135 + 180, transform.rotation.eulerAngles.z);
+        } else if (horizontal > 0f && vertical == 0)
+        {
+            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, -90, transform.rotation.eulerAngles.z);
+        } else if (horizontal < 0f && vertical == 0)
+        {
+            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 90, transform.rotation.eulerAngles.z);
+        } else if (horizontal == 0f && vertical < 0)
+        {
+            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, transform.rotation.eulerAngles.z);
+        } else if (horizontal == 0f && vertical > 0)
+        {
+            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 180, transform.rotation.eulerAngles.z);
         }
+
+
 
         if (vertical != 0)
         {

@@ -2,52 +2,85 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    [Header("Components")]
     public Rigidbody rb;
     public GameObject sword;
     public Animator animator;
     public GameObject mesh;
+    public Material crystalMaterial;
+    public Material swordMaterial;
     public Camera cam;
+    [Header("Movement")]
     public float speed;
     [Range(0.75f, 1f)]
     public float brakeSpeed;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [HideInInspector]
+    public bool isHit;
+    [Header("Health")]
+    public float hitCooldown;
+    [HideInInspector]
+    public float hitTimer;
+    public float maxhp = 100;
+    public float hp = 100;
+    [ColorUsageAttribute(false, true)]
+    public Color hitColor;
+    [ColorUsageAttribute(false, true)]
+    public Color defaultColor;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Joystick1Button0))
-        {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                //sword.transform.LookAt(new Vector3(hit.point.x, sword.transform.position.y, hit.point.z));
-                animator.SetTrigger("Swing");
-                //sword.transform.rotation = Quaternion.Euler(sword.transform.rotation.eulerAngles.x + 90, sword.transform.rotation.eulerAngles.y, sword.transform.rotation.eulerAngles.z);
-            }
-            //sword.transform.rotation = Quaternion.Euler(sword.transform.rotation.eulerAngles.x, sword.transform.rotation.eulerAngles.y, sword.transform.rotation.eulerAngles.z + (100 * Time.deltaTime));
-        }
-
         Ray ray2 = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit2;
 
         if (Physics.Raycast(ray2, out hit2))
         {
-            mesh.transform.LookAt(new Vector3(hit2.point.x, sword.transform.position.y, hit2.point.z));
+            mesh.transform.LookAt(new Vector3(hit2.point.x, mesh.transform.position.y, hit2.point.z));
             mesh.transform.Rotate(new Vector3(0, 180, 0));
+        }
+
+        if (isHit)
+        {
+            hitTimer -= Time.deltaTime;
+            if (hitTimer < 0)
+            {
+                isHit = false;
+            }
+            crystalMaterial.color = hitColor;
+            swordMaterial.color = defaultColor;
+        } else
+        {
+            crystalMaterial.color = defaultColor;
+            swordMaterial.color = hitColor;
+
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Joystick1Button0))
+            {
+                Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    animator.SetTrigger("Swing");
+                }
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        float vertical = Input.GetAxisRaw("Vertical");
-        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = 0;
+        float horizontal = 0;
+
+        if (isHit)
+        {
+            vertical = Input.GetAxisRaw("Vertical") * (speed / 2);
+            horizontal = Input.GetAxisRaw("Horizontal") * (speed / 2);
+        } else
+        {
+            vertical = Input.GetAxisRaw("Vertical") * speed;
+            horizontal = Input.GetAxisRaw("Horizontal") * speed;
+        }
 
         // str = horizontal.ToString() + ", " + vertical.ToString();
         //Debug.Log(str);
@@ -81,14 +114,14 @@ public class PlayerScript : MonoBehaviour
 
         if (vertical != 0)
         {
-            rb.velocity = new Vector3(rb.velocity.x, 0, vertical * speed);
+            rb.velocity = new Vector3(rb.velocity.x, 0, vertical);
         } else
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z * brakeSpeed);
         }
         if (horizontal != 0)
         {
-            rb.velocity = new Vector3(horizontal * speed, 0, rb.velocity.z);
+            rb.velocity = new Vector3(horizontal, 0, rb.velocity.z);
         }
         else
         {

@@ -42,6 +42,11 @@ public class PlayerScript : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         float horizontal = Input.GetAxisRaw("Horizontal");
 
+        if (horizontal > 0)
+        {
+            return;
+        }
+
         if (vertical != 0)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, vertical * speed);

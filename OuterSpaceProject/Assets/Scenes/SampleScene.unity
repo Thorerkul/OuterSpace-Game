@@ -155,8 +155,9 @@ Transform:
   - {fileID: 1217654408}
   - {fileID: 539089644}
   - {fileID: 1903041132}
+  - {fileID: 1775244672}
   m_Father: {fileID: 687530208}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &231464053
 GameObject:
@@ -664,7 +665,7 @@ GameObject:
   - component: {fileID: 687530212}
   - component: {fileID: 687530213}
   m_Layer: 0
-  m_Name: Mesh
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -683,7 +684,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 963194228}
-  - {fileID: 1775244672}
   - {fileID: 215386742}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -719,6 +719,7 @@ MonoBehaviour:
   rb: {fileID: 687530210}
   sword: {fileID: 484634255}
   animator: {fileID: 1775244671}
+  mesh: {fileID: 215386741}
   cam: {fileID: 963194227}
   speed: 10
   brakeSpeed: 0.8
@@ -1386,14 +1387,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775244670}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.31}
-  m_LocalScale: {x: 0.059999984, y: 0.15, z: 0.3}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.39}
+  m_LocalScale: {x: 0.14999996, y: 0.375, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 484634259}
-  m_Father: {fileID: 687530208}
-  m_RootOrder: 1
+  m_Father: {fileID: 215386742}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1865773293
 GameObject:

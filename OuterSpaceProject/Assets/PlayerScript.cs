@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
@@ -36,6 +37,14 @@ public class PlayerScript : MonoBehaviour
             }
             //sword.transform.rotation = Quaternion.Euler(sword.transform.rotation.eulerAngles.x, sword.transform.rotation.eulerAngles.y, sword.transform.rotation.eulerAngles.z + (100 * Time.deltaTime));
         }
+
+        Ray ray2 = cam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit2;
+
+        if (Physics.Raycast(ray2, out hit2))
+        {
+            mesh.transform.LookAt(new Vector3(hit2.point.x, sword.transform.position.y, hit2.point.z));
+        }
     }
 
     private void FixedUpdate()
@@ -45,6 +54,7 @@ public class PlayerScript : MonoBehaviour
 
         // str = horizontal.ToString() + ", " + vertical.ToString();
         //Debug.Log(str);
+        /*
         if (horizontal > 0f && vertical > 0)
         {
             mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 45 + 180, transform.rotation.eulerAngles.z);
@@ -70,8 +80,7 @@ public class PlayerScript : MonoBehaviour
         {
             mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 180, transform.rotation.eulerAngles.z);
         }
-
-
+        */
 
         if (vertical != 0)
         {

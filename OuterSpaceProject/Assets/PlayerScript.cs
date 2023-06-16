@@ -44,6 +44,7 @@ public class PlayerScript : MonoBehaviour
         if (Physics.Raycast(ray2, out hit2))
         {
             mesh.transform.LookAt(new Vector3(hit2.point.x, sword.transform.position.y, hit2.point.z));
+            mesh.transform.Rotate(new Vector3(0, 180, 0));
         }
     }
 

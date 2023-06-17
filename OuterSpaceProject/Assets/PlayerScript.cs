@@ -28,6 +28,10 @@ public class PlayerScript : MonoBehaviour
     [ColorUsageAttribute(false, true)]
     public Color defaultColor;
 
+    [Header("Damage")]
+    public float knockback;
+    public float damage;
+
     // Update is called once per frame
     void Update()
     {

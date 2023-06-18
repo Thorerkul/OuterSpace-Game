@@ -8,7 +8,7 @@ public class CombatFunctions : MonoBehaviour
     {
         float x;
 
-        x = Mathf.Abs(damage - Mathf.Clamp((defence - ap), 0, 9999));
+        x = Mathf.Abs(damage - Mathf.Clamp((defence - ap), 0, Mathf.Infinity));
 
         return x;
     }

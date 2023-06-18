@@ -23,6 +23,7 @@ public class PlayerScript : MonoBehaviour
     public float hitTimer;
     public float maxhp = 100;
     public float hp = 100;
+    public float defence;
     [ColorUsageAttribute(false, true)]
     public Color hitColor;
     [ColorUsageAttribute(false, true)]
@@ -31,12 +32,21 @@ public class PlayerScript : MonoBehaviour
     [Header("Damage")]
     public float knockback;
     public float damage;
-    //[HideInInspector]
+    public float armorPenetration = 0;
+    [HideInInspector]
     public bool isSwinging;
 
     // Update is called once per frame
     void Update()
     {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("SwordSwing"))
+        {
+            isSwinging = true;
+        } else
+        {
+            isSwinging = false;
+        }
+
         Ray ray2 = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit2;
 

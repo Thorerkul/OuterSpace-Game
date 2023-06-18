@@ -454,7 +454,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.48, y: 21.4, z: 6.04}
+  m_Size: {x: 9.14, y: 21.4, z: 6.04}
   m_Center: {x: 0, y: 14.84, z: 0}
 --- !u!23 &484634257
 MeshRenderer:
@@ -814,10 +814,13 @@ MonoBehaviour:
   hitTimer: 0
   maxhp: 100
   hp: 100
+  defence: 0
   hitColor: {r: 4, g: 0, b: 0, a: 0}
   defaultColor: {r: 1.7254902, g: 2.9960785, b: 0, a: 0}
   knockback: 500
-  damage: 1
+  damage: 5
+  armorPenetration: 4
+  isSwinging: 0
 --- !u!65 &687530213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1424,6 +1427,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217654407}
   m_Mesh: {fileID: -5495902117074765545, guid: bc654e627a7c3844691f2aabd35445e9, type: 3}
+--- !u!1 &1357130714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1357130716}
+  - component: {fileID: 1357130715}
+  m_Layer: 0
+  m_Name: Helpers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1357130715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357130714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1878984ddef394aade23670d2e389c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1357130716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357130714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1499428630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1887,13 +1934,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5def919f5beed4dbdc60e664f3d033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatFunctions: {fileID: 1357130715}
   agent: {fileID: 1809635648}
   rb: {fileID: 1809635647}
   playerpos: {fileID: 687530208}
   player: {fileID: 687530212}
   damage: 1
-  defence: 1
-  hp: 10
+  defence: 10
+  armorPenetration: 0
+  hp: 100
   knockback: 5000
   isHit: 0
   hitCooldown: 0.25

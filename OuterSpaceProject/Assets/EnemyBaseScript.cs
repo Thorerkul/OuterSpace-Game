@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class EnemyBaseScript : MonoBehaviour
 {
+    public CombatFunctions combatFunctions;
+
     public NavMeshAgent agent;
     public Rigidbody rb;
     public Transform playerpos;
@@ -13,18 +15,13 @@ public class EnemyBaseScript : MonoBehaviour
 
     public float damage;
     public float defence = 1;
+    public float armorPenetration = 0;
     public float hp = 10;
     public float knockback = 10;
 
     public bool isHit;
     public float hitCooldown;
     public float hitTimer;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -41,7 +38,7 @@ public class EnemyBaseScript : MonoBehaviour
         } else
         {
             agent.SetDestination(playerpos.position);
-            if (hp < 0)
+            if (hp <= 0)
             {
                 gameObject.SetActive(false);
             }
@@ -53,13 +50,8 @@ public class EnemyBaseScript : MonoBehaviour
         if (collision.gameObject.layer == 7)
         {
             player.isHit = true;
-            player.hp -= damage / 2;
+            player.hp -= combatFunctions.damageCalculator(damage, player.defence, armorPenetration);
             player.hitTimer = player.hitCooldown;
-            /*
-            playerpos.LookAt(transform.position);
-            playerpos.rotation = Quaternion.Euler(playerpos.rotation.eulerAngles.x, 0, playerpos.rotation.eulerAngles.z);
-            player.rb.velocity = transform.forward * knockback;
-            */
 
             Vector3 moveDirection = player.rb.transform.position - transform.position;
             player.rb.AddForce(new Vector3(moveDirection.normalized.x, 0, moveDirection.normalized.z) * knockback);
@@ -68,14 +60,9 @@ public class EnemyBaseScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 9)
+        if (other.gameObject.layer == 9 && player.isSwinging)
         {
-            hp -= player.damage / 2;
-            /*
-            transform.LookAt(playerpos.position);
-            transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
-            rb.velocity = transform.forward * knockback;
-            */
+            hp -= combatFunctions.damageCalculator(player.damage, defence, player.armorPenetration);
 
             isHit = true;
             hitTimer = hitCooldown;
@@ -85,10 +72,6 @@ public class EnemyBaseScript : MonoBehaviour
 
             Vector3 moveDirection = rb.transform.position - player.transform.position;
             rb.AddForce(new Vector3(moveDirection.normalized.x, 0, moveDirection.normalized.z) * player.knockback);
-
-            Debug.Log(rb.velocity);
-            Debug.Log(playerpos.forward * player.knockback);
-            Debug.Log(transform.rotation.eulerAngles);
         }
     }
 }

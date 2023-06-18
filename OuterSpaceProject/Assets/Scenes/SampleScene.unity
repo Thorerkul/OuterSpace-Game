@@ -816,7 +816,7 @@ MonoBehaviour:
   hp: 100
   hitColor: {r: 4, g: 0, b: 0, a: 0}
   defaultColor: {r: 1.7254902, g: 2.9960785, b: 0, a: 0}
-  knockback: 25
+  knockback: 500
   damage: 1
 --- !u!65 &687530213
 BoxCollider:
@@ -1894,7 +1894,10 @@ MonoBehaviour:
   damage: 1
   defence: 1
   hp: 10
-  knockback: 100
+  knockback: 5000
+  isHit: 0
+  hitCooldown: 0.25
+  hitTimer: 0
 --- !u!65 &1809635650
 BoxCollider:
   m_ObjectHideFlags: 0

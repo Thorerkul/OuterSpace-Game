@@ -31,6 +31,8 @@ public class PlayerScript : MonoBehaviour
     [Header("Damage")]
     public float knockback;
     public float damage;
+    //[HideInInspector]
+    public bool isSwinging;
 
     // Update is called once per frame
     void Update()

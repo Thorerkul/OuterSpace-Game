@@ -38,10 +38,11 @@ public class EnemyBaseScript : MonoBehaviour
         } else
         {
             agent.SetDestination(playerpos.position);
-            if (hp <= 0)
-            {
-                gameObject.SetActive(false);
-            }
+        }
+
+        if (hp <= 0)
+        {
+            gameObject.SetActive(false);
         }
     }
 

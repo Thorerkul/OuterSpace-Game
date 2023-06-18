@@ -5,6 +5,7 @@ public class PlayerScript : MonoBehaviour
     [Header("Components")]
     public Rigidbody rb;
     public GameObject sword;
+    public GameObject wheel;
     public Animator animator;
     public GameObject mesh;
     public Material crystalMaterial;
@@ -100,33 +101,33 @@ public class PlayerScript : MonoBehaviour
 
         // str = horizontal.ToString() + ", " + vertical.ToString();
         //Debug.Log(str);
-        /*
+        
         if (horizontal > 0f && vertical > 0)
         {
-            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 45 + 180, transform.rotation.eulerAngles.z);
+            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 45 + 180, transform.rotation.eulerAngles.z);
         } else if (horizontal < 0f && vertical > 0)
         {
-            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, -45 + 180, transform.rotation.eulerAngles.z);
+            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, -45 + 180, transform.rotation.eulerAngles.z);
         } else if (horizontal > 0f && vertical < 0)
         {
-            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 135 + 180, transform.rotation.eulerAngles.z);
+            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 135 + 180, transform.rotation.eulerAngles.z);
         } else if (horizontal < 0f && vertical < 0)
         {
-            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, -135 + 180, transform.rotation.eulerAngles.z);
+            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, -135 + 180, transform.rotation.eulerAngles.z);
         } else if (horizontal > 0f && vertical == 0)
         {
-            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, -90, transform.rotation.eulerAngles.z);
+            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, -90, transform.rotation.eulerAngles.z);
         } else if (horizontal < 0f && vertical == 0)
         {
-            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 90, transform.rotation.eulerAngles.z);
+            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 90, transform.rotation.eulerAngles.z);
         } else if (horizontal == 0f && vertical < 0)
         {
-            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, transform.rotation.eulerAngles.z);
+            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, transform.rotation.eulerAngles.z);
         } else if (horizontal == 0f && vertical > 0)
         {
-            mesh.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 180, transform.rotation.eulerAngles.z);
+            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 180, transform.rotation.eulerAngles.z);
         }
-        */
+        
 
         if (vertical != 0)
         {

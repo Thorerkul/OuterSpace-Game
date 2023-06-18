@@ -10,6 +10,6 @@ public class CombatFunctions : MonoBehaviour
 
         x = Mathf.Abs(damage - Mathf.Clamp((defence - ap), 0, Mathf.Infinity));
 
-        return x;
+        return x + 1;
     }
 }

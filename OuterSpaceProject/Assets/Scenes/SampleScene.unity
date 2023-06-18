@@ -817,15 +817,10 @@ MonoBehaviour:
   defence: 0
   hitColor: {r: 4, g: 0, b: 0, a: 0}
   defaultColor: {r: 1.7254902, g: 2.9960785, b: 0, a: 0}
-<<<<<<< Updated upstream
   knockback: 500
   damage: 5
   armorPenetration: 4
   isSwinging: 0
-=======
-  knockback: 10
-  damage: 1
->>>>>>> Stashed changes
 --- !u!65 &687530213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1945,7 +1940,6 @@ MonoBehaviour:
   playerpos: {fileID: 687530208}
   player: {fileID: 687530212}
   damage: 1
-<<<<<<< Updated upstream
   defence: 10
   armorPenetration: 0
   hp: 100
@@ -1953,11 +1947,6 @@ MonoBehaviour:
   isHit: 0
   hitCooldown: 0.25
   hitTimer: 0
-=======
-  defence: 1
-  hp: 5
-  knockback: 50
->>>>>>> Stashed changes
 --- !u!65 &1809635650
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1582,20 +1582,9 @@ MonoBehaviour:
   sword: {fileID: 852896028}
   animator: {fileID: 1658451321}
   mesh: {fileID: 926842948}
-  crystalMaterial: {fileID: 2100000, guid: 86096074708c74341bbfac7f32a63ca0, type: 2}
-  swordMaterial: {fileID: 2100000, guid: fd4ed7e460c712543aca6cd0dbdb3757, type: 2}
   cam: {fileID: 173740218}
   speed: 10
   brakeSpeed: 0.8
-  isHit: 0
-  hitCooldown: 0
-  hitTimer: 0
-  maxhp: 100
-  hp: 100
-  hitColor: {r: 2.9960785, g: 0, b: 0, a: 0}
-  defaultColor: {r: 1.2324977, g: 1.4588237, b: 0, a: 0}
-  knockback: 0
-  damage: 0
 --- !u!54 &1193979780
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -818,8 +818,8 @@ MonoBehaviour:
   hitColor: {r: 4, g: 0, b: 0, a: 0}
   defaultColor: {r: 1.7254902, g: 2.9960785, b: 0, a: 0}
   knockback: 500
-  damage: 5
-  armorPenetration: 4
+  damage: 10
+  armorPenetration: 0
   isSwinging: 0
 --- !u!65 &687530213
 BoxCollider:

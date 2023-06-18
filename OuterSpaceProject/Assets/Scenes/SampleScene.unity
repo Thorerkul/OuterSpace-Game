@@ -819,8 +819,8 @@ MonoBehaviour:
   defaultColor: {r: 1.7254902, g: 2.9960785, b: 0, a: 0}
 <<<<<<< Updated upstream
   knockback: 500
-  damage: 5
-  armorPenetration: 4
+  damage: 10
+  armorPenetration: 0
   isSwinging: 0
 =======
   knockback: 10

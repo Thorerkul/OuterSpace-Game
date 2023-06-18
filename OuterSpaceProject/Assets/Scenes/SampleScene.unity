@@ -817,9 +817,9 @@ MonoBehaviour:
   defence: 0
   hitColor: {r: 4, g: 0, b: 0, a: 0}
   defaultColor: {r: 1.7254902, g: 2.9960785, b: 0, a: 0}
-  knockback: 500
+  knockback: 1000
   damage: 5
-  armorPenetration: 4
+  armorPenetration: 10
   isSwinging: 0
 --- !u!65 &687530213
 BoxCollider:
@@ -1943,7 +1943,7 @@ MonoBehaviour:
   defence: 10
   armorPenetration: 0
   hp: 100
-  knockback: 5000
+  knockback: 2500
   isHit: 0
   hitCooldown: 0.25
   hitTimer: 0

@@ -54,8 +54,8 @@ public class EnemyBaseScript : MonoBehaviour
             player.hp -= combatFunctions.damageCalculator(damage, player.defence, armorPenetration);
             player.hitTimer = player.hitCooldown;
 
-            Vector3 moveDirection = player.rb.transform.position - transform.position;
-            player.rb.AddForce(new Vector3(moveDirection.normalized.x, 0, moveDirection.normalized.z) * knockback);
+            //Vector3 moveDirection = player.rb.transform.position - transform.position;
+            //player.rb.AddForce(new Vector3(moveDirection.normalized.x, 0, moveDirection.normalized.z) * knockback);
         }
     }
 

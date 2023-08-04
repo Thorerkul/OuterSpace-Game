@@ -1,9 +1,9 @@
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
     [Header("Components")]
-    public Rigidbody rb;
     public GameObject sword;
     public GameObject wheel;
     public Animator animator;
@@ -11,10 +11,12 @@ public class PlayerScript : MonoBehaviour
     public Material crystalMaterial;
     public Material swordMaterial;
     public Camera cam;
+    public WorldScript world;
     [Header("Movement")]
     public float speed;
     [Range(0.75f, 1f)]
     public float brakeSpeed;
+    private Vector3 topDownPos;
 
     [HideInInspector]
     public bool isHit;
@@ -37,9 +39,15 @@ public class PlayerScript : MonoBehaviour
     [HideInInspector]
     public bool isSwinging;
 
+    private void Start()
+    {
+        topDownPos = transform.position;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        /*
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("SwordSwing"))
         {
             isSwinging = true;
@@ -82,6 +90,7 @@ public class PlayerScript : MonoBehaviour
                 }
             }
         }
+        */
     }
 
     private void FixedUpdate()
@@ -99,55 +108,24 @@ public class PlayerScript : MonoBehaviour
             horizontal = Input.GetAxisRaw("Horizontal") * speed;
         }
 
-        // str = horizontal.ToString() + ", " + vertical.ToString();
-        //Debug.Log(str);
-        
-        if (horizontal > 0f && vertical > 0)
-        {
-            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 45 + 180, transform.rotation.eulerAngles.z);
-        } else if (horizontal < 0f && vertical > 0)
-        {
-            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, -45 + 180, transform.rotation.eulerAngles.z);
-        } else if (horizontal > 0f && vertical < 0)
-        {
-            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 135 + 180, transform.rotation.eulerAngles.z);
-        } else if (horizontal < 0f && vertical < 0)
-        {
-            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, -135 + 180, transform.rotation.eulerAngles.z);
-        } else if (horizontal > 0f && vertical == 0)
-        {
-            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, -90, transform.rotation.eulerAngles.z);
-        } else if (horizontal < 0f && vertical == 0)
-        {
-            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 90, transform.rotation.eulerAngles.z);
-        } else if (horizontal == 0f && vertical < 0)
-        {
-            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, transform.rotation.eulerAngles.z);
-        } else if (horizontal == 0f && vertical > 0)
-        {
-            wheel.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 180, transform.rotation.eulerAngles.z);
-        }
-        
+        //x axis movement
+        transform.position += new Vector3(horizontal, 0, 0) * Time.deltaTime;
 
-        if (vertical != 0)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, 0, vertical);
-        } else
-        {
-            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z * brakeSpeed);
-        }
-        if (horizontal != 0)
-        {
-            rb.velocity = new Vector3(horizontal, 0, rb.velocity.z);
-        }
-        else
-        {
-            rb.velocity = new Vector3(rb.velocity.x * brakeSpeed, 0, rb.velocity.z);
-        }
+        transform.localPosition += new Vector3(0, 0, vertical) * Time.deltaTime;
 
-        if (horizontal != 0 && vertical != 0)
+        /*
+        // Create a vector for the input.
+        Vector3 inputVector = new Vector3(horizontal, 0f, vertical).normalized;
+
+        // Check if the input is not zero, and only then move the object.
+        if (inputVector != Vector3.zero)
         {
-            rb.velocity = new Vector3(rb.velocity.x * (1 / Mathf.Sqrt(2)), 0, rb.velocity.z * (1 / Mathf.Sqrt(2)));
+            // Convert the input vector to the rotated vector using the ReturnNewCoordinates function.
+            Vector3 rotatedVector = world.ReturnNewCoordinates(inputVector, world.rotation.x);
+
+            // Translate the object based on the rotated vector.
+            transform.Translate(rotatedVector * speed * Time.deltaTime, Space.World);
         }
+        */
     }
 }

@@ -1012,7 +1012,7 @@ MonoBehaviour:
   world: {fileID: 595321083}
   speed: 10
   brakeSpeed: 0.8
-  rotationSpeed: 5
+  rotationSpeed: 10
   isHit: 0
   hitCooldown: 1
   hitTimer: 0

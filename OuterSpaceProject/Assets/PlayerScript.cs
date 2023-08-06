@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour
     [Range(0.75f, 1f)]
     public float brakeSpeed;
     public float rotationSpeed;
+    [Range(1, 360)]
     public int rotationSnaps;
 
     [HideInInspector]
@@ -42,6 +43,14 @@ public class PlayerScript : MonoBehaviour
     public bool isSwinging;
     [HideInInspector]
     float prev_RightTrigger;
+    float prev_LeftTrigger;
+
+    [Header("Dash")]
+    public float dashForce;
+    public float dashCooldown;
+    private bool isDashing;
+    private float dashTimer;
+    private Vector2 lastMoveDir;
 
     // Update is called once per frame
     void Update()
@@ -101,6 +110,52 @@ public class PlayerScript : MonoBehaviour
         }
 
         prev_RightTrigger = Input.GetAxisRaw("RightTrigger");
+
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        if (horizontal != 0 || vertical != 0)
+        {
+            lastMoveDir.x = horizontal;
+            lastMoveDir.y = vertical;
+        }
+
+        float leftTrigger = Input.GetAxisRaw("LeftTrigger");
+
+
+        // Check if the dash button is pressed and the dash is not on cooldown.
+        if (leftTrigger > 0.5f && leftTrigger != prev_LeftTrigger || Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && dashTimer <= 0f)
+        {
+            // Get the last movement direction.
+            Vector3 dashDirection = new Vector3(lastMoveDir.x, 0f, lastMoveDir.y).normalized;
+
+            // Check if there was any movement before dashing.
+            if (dashDirection != Vector3.zero)
+            {
+                // Apply the dash force in the movement direction.
+                rb.AddForce(dashDirection * dashForce, ForceMode.Impulse);
+
+                // Start the dash cooldown.
+                dashTimer = dashCooldown;
+
+                // Set the dashing flag to true.
+                isDashing = true;
+            }
+        }
+
+        // ... Other code ...
+
+        // Reduce the dash timer and reset the dashing flag when the cooldown is over.
+        if (isDashing)
+        {
+            dashTimer -= Time.deltaTime;
+            if (dashTimer <= 0f)
+            {
+                isDashing = false;
+            }
+        }
+
+        prev_LeftTrigger = leftTrigger;
     }
 
     void MouseRotation()
@@ -144,6 +199,12 @@ public class PlayerScript : MonoBehaviour
         {
             vertical = Input.GetAxisRaw("Vertical") * speed;
             horizontal = Input.GetAxisRaw("Horizontal") * speed;
+        }
+
+        if (isDashing)
+        {
+            vertical = 0;
+            horizontal = 0;
         }
 
         // str = horizontal.ToString() + ", " + vertical.ToString();

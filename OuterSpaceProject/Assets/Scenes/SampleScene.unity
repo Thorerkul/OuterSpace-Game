@@ -925,6 +925,8 @@ MonoBehaviour:
   damage: 5
   armorPenetration: 10
   isSwinging: 0
+  dashForce: 100
+  dashCooldown: 0.3
 --- !u!65 &687530214
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1274,9 +1276,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerpos: {fileID: 687530208}
-  offset: {x: 0, y: 12, z: -8}
+  offset: {x: 0, y: 24, z: -20}
   cam: {fileID: 963194227}
   camzoomSpeed: 5
+  camZoomMaxSize: 25
 --- !u!1 &1021591656
 GameObject:
   m_ObjectHideFlags: 0

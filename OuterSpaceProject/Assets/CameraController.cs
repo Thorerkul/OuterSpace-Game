@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
     public Vector3 offset;
     public Camera cam;
     public float camzoomSpeed;
+    public float camZoomMaxSize;
 
     private void Update()
     {
@@ -16,6 +17,10 @@ public class CameraController : MonoBehaviour
         if (cam.orthographicSize < 1)
         {
             cam.orthographicSize = 1;
+        }
+        if (cam.orthographicSize > camZoomMaxSize)
+        {
+            cam.orthographicSize = camZoomMaxSize;
         }
 
         transform.position = new Vector3(playerpos.position.x + offset.x, playerpos.position.y + offset.y, playerpos.position.z + offset.z);

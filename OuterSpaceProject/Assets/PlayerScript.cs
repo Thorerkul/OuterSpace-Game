@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour
     [Range(0.75f, 1f)]
     public float brakeSpeed;
     public float rotationSpeed;
+    public int rotationSnaps;
 
     [HideInInspector]
     public bool isHit;
@@ -57,6 +58,9 @@ public class PlayerScript : MonoBehaviour
             // Calculate the angle between the joystick input and the forward direction of the GameObject.
             Vector3 inputDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
             float angle = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg;
+
+            // Modify the angle to snap to rotationSnaps amount of rotations
+            //float newAngle = ((int)angle / (360 / rotationSnaps)) * (int)(360 / rotationSnaps);
 
             // Calculate the target rotation as a local rotation around the Y-axis.
             Quaternion targetRotation = Quaternion.Euler(0f, angle + 90, 0f);
@@ -179,7 +183,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         //x axis movement
-        transform.position += new Vector3(horizontal, 0, 0) * Time.deltaTime;
+        //transform.position += new Vector3(horizontal, 0, 0) * Time.deltaTime;
 
         if (vertical != 0)
         {
@@ -197,6 +201,6 @@ public class PlayerScript : MonoBehaviour
         {
             rb.velocity = new Vector3(rb.velocity.x * brakeSpeed, 0, rb.velocity.z);
         }
-        transform.localPosition += new Vector3(0, 0, vertical) * Time.deltaTime;
+        //transform.localPosition += new Vector3(0, 0, vertical) * Time.deltaTime;
     }
 }

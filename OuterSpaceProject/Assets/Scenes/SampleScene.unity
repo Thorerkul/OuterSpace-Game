@@ -911,7 +911,8 @@ MonoBehaviour:
   cam: {fileID: 963194227}
   speed: 10
   brakeSpeed: 0.8
-  rotationSpeed: 10
+  rotationSpeed: 50
+  rotationSnaps: 360
   isHit: 0
   hitCooldown: 1
   hitTimer: 0

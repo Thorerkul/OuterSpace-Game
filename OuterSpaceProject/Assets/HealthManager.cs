@@ -15,6 +15,11 @@ public class HealthManager : MonoBehaviour
     public Sprite rightFilled;
     public Sprite rightEmpty;
 
+    public Image Head;
+    public Sprite HeadNormal;
+    public Sprite HeadDamaged;
+    public bool isDamaged;
+
     private void Update()
     {
         UpdateHealth();
@@ -37,6 +42,14 @@ public class HealthManager : MonoBehaviour
         } else
         {
             rightImage.sprite = rightEmpty;
+        }
+
+        if (isDamaged)
+        {
+            Head.sprite = HeadDamaged;
+        } else
+        {
+            Head.sprite = HeadNormal;
         }
     }
 }

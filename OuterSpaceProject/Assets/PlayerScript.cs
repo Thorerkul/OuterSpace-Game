@@ -124,7 +124,7 @@ public class PlayerScript : MonoBehaviour
 
 
         // Check if the dash button is pressed and the dash is not on cooldown.
-        if (leftTrigger > 0.5f && leftTrigger != prev_LeftTrigger || Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && dashTimer <= 0f)
+        if (leftTrigger > 0.9f && leftTrigger > prev_LeftTrigger || Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && dashTimer <= 0f)
         {
             // Get the last movement direction.
             Vector3 dashDirection = new Vector3(lastMoveDir.x, 0f, lastMoveDir.y).normalized;

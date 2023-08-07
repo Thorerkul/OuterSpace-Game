@@ -8,12 +8,9 @@ public class HealthManager : MonoBehaviour
     public float health;
     public float maxHealth;
     public Slider healthSlider;
-    public Image leftImage;
-    public Sprite leftFilled;
-    public Sprite leftEmpty;
-    public Image rightImage;
-    public Sprite rightFilled;
-    public Sprite rightEmpty;
+    public Image fill;
+    public Sprite healthNormal;
+    public Sprite healthDamaged;
 
     public Image Head;
     public Sprite HeadNormal;
@@ -28,28 +25,16 @@ public class HealthManager : MonoBehaviour
     public void UpdateHealth()
     {
         healthSlider.value = health / maxHealth;
-        if (healthSlider.value <= 0)
-        {
-            leftImage.sprite = leftEmpty;
-        } else
-        {
-            leftImage.sprite = leftFilled;
-        }
-
-        if (healthSlider.value >= 1)
-        {
-            rightImage.sprite = rightFilled;
-        } else
-        {
-            rightImage.sprite = rightEmpty;
-        }
 
         if (isDamaged)
         {
             Head.sprite = HeadDamaged;
+            fill.sprite = healthDamaged;
+
         } else
         {
             Head.sprite = HeadNormal;
+            fill.sprite = healthNormal;
         }
     }
 }

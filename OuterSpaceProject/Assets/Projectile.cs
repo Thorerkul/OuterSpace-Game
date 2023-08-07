@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public Quaternion direction;
+    public CombatFunctions combatFunctions;
+    public PlayerScript player;
+    public Vector3 direction;
     public float speed;
     public float timeToLive;
     public string type;
+    public float damage;
+    public float armorPenetration;
 
     private float startTime;
 
@@ -20,12 +24,23 @@ public class Projectile : MonoBehaviour
     private void Update()
     {
         // Move the projectile in the specified direction at the given speed.
-        transform.position += direction.eulerAngles * speed * Time.deltaTime;
+        transform.position += direction.normalized * speed * Time.deltaTime;
 
         // Check if the projectile has exceeded its time to live.
         if (Time.time - startTime >= timeToLive && isOriginal != true)
         {
             // Destroy the projectile.
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            player.isHit = true;
+            player.hp -= combatFunctions.damageCalculator(damage, player.defence, armorPenetration);
+            player.hitTimer = player.hitCooldown;
             Destroy(gameObject);
         }
     }

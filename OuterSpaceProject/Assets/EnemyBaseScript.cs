@@ -75,17 +75,31 @@ public class EnemyBaseScript : MonoBehaviour
 
     public void FireProjectile()
     {
+        Transform oldtrans = transform;
+
+        transform.LookAt(player.transform.position);
+        transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
+
+        // Get the direction the shooter is facing (forward).
+        Vector3 fireDirection = transform.forward;
+
         GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
         Projectile projectileScript = newProjectile.GetComponent<Projectile>();
 
         if (projectileScript != null)
         {
-            projectileScript.direction = transform.rotation;
-            projectileScript.speed = 100;
-            projectileScript.timeToLive = 60;
+            projectileScript.direction = fireDirection;
+            projectileScript.speed = -100;
+            projectileScript.timeToLive = 5;
             projectileScript.type = "Test";
             projectileScript.isOriginal = false;
+            projectileScript.player = player;
+            projectileScript.combatFunctions = combatFunctions;
+            projectileScript.damage = damage;
+            projectileScript.armorPenetration = armorPenetration;
         }
+
+        transform.rotation = oldtrans.rotation;
     }
 
     private void OnCollisionStay(Collision collision)

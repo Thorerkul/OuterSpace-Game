@@ -1204,6 +1204,7 @@ GameObject:
   - component: {fileID: 687530212}
   - component: {fileID: 687530214}
   - component: {fileID: 687530215}
+  - component: {fileID: 687530216}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -1262,7 +1263,7 @@ MonoBehaviour:
   maxstamina: 100
   stamina: 100
   staminaRegainSpeed: 10
-  staminaMultiplier: 0
+  staminaMultiplier: 1
   defence: 0
   hitColor: {r: 4, g: 0, b: 0, a: 0}
   defaultColor: {r: 1.7254902, g: 2.9960785, b: 0, a: 0}
@@ -1302,6 +1303,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!65 &687530216
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687530204}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3.17, z: 1}
+  m_Center: {x: 0, y: 2.36, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3117,7 +3131,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809635645}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8800001, z: 6.08}
+  m_LocalPosition: {x: 0, y: 1.8800001, z: 16.45}
   m_LocalScale: {x: 1, y: 3.56, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3429,7 +3443,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -8061,7 +8075,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901649561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalPosition: {x: 0, y: -20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8093,10 +8107,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afcc0b380f2dcdf48b38f738b4f2f319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatFunctions: {fileID: 0}
+  player: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
   speed: 0
   timeToLive: 0
   type: 
+  damage: 0
+  armorPenetration: 0
   isOriginal: 1
 --- !u!1 &1903041131
 GameObject:

@@ -1,12 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO.Pipes;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using static UnityEditor.Rendering.CameraUI;
+
+public enum EnemyType
+{
+    Melee = 0,
+    Ranged = 1,
+    Magic = 2,
+}
 
 public class EnemyBaseScript : MonoBehaviour
 {
     public CombatFunctions combatFunctions;
+    public EnemyType enemyType;
+    public GameObject projectile;
 
     public NavMeshAgent agent;
     public Rigidbody rb;
@@ -23,6 +34,9 @@ public class EnemyBaseScript : MonoBehaviour
     public float hitCooldown;
     public float hitTimer;
 
+    public float projectileSpawnTime;
+    public float projectileSpawnTimer;
+
     // Update is called once per frame
     void Update()
     {
@@ -37,12 +51,40 @@ public class EnemyBaseScript : MonoBehaviour
             }
         } else
         {
-            agent.SetDestination(playerpos.position);
+            if (enemyType == EnemyType.Melee)
+            {
+                agent.SetDestination(playerpos.position);
+            } else if (enemyType == EnemyType.Ranged)
+            {
+                agent.SetDestination(playerpos.position + new Vector3(0, 0, 10));
+                if (projectileSpawnTimer <= 0)
+                {
+                    projectileSpawnTimer = projectileSpawnTime;
+
+                    FireProjectile();
+                }
+                projectileSpawnTimer -= Time.deltaTime;
+            }
         }
 
         if (hp <= 0)
         {
             gameObject.SetActive(false);
+        }
+    }
+
+    public void FireProjectile()
+    {
+        GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+        Projectile projectileScript = newProjectile.GetComponent<Projectile>();
+
+        if (projectileScript != null)
+        {
+            projectileScript.direction = transform.rotation;
+            projectileScript.speed = 100;
+            projectileScript.timeToLive = 60;
+            projectileScript.type = "Test";
+            projectileScript.isOriginal = false;
         }
     }
 

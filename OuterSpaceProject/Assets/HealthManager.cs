@@ -35,6 +35,7 @@ public class HealthManager : MonoBehaviour
         {
             Head.sprite = HeadNormal;
             fill.sprite = healthNormal;
+            //sadsdas
         }
     }
 }

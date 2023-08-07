@@ -7,10 +7,20 @@ public class HealthManager : MonoBehaviour
 {
     public float health;
     public float maxHealth;
+
+
     public Slider healthSlider;
-    public Image fill;
+    public Image healthfill;
     public Sprite healthNormal;
     public Sprite healthDamaged;
+
+    public float stamina;
+    public float maxStamina;
+
+    public Slider staminaSlider;
+    public Image staminafill;
+    public Sprite staminaNormal;
+    public Sprite staminaDamaged;
 
     public Image Head;
     public Sprite HeadNormal;
@@ -25,17 +35,19 @@ public class HealthManager : MonoBehaviour
     public void UpdateHealth()
     {
         healthSlider.value = health / maxHealth;
+        staminaSlider.value = stamina / maxStamina;
 
         if (isDamaged)
         {
             Head.sprite = HeadDamaged;
-            fill.sprite = healthDamaged;
+            healthfill.sprite = healthDamaged;
+            staminafill.sprite = staminaDamaged;
 
         } else
         {
             Head.sprite = HeadNormal;
-            fill.sprite = healthNormal;
-            //sadsdas
+            healthfill.sprite = healthNormal;
+            staminafill.sprite = staminaNormal;
         }
     }
 }

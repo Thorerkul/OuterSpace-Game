@@ -46,13 +46,22 @@ public class EnemyBaseScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.layer == 7)
         {
             player.isHit = true;
             player.hp -= combatFunctions.damageCalculator(damage, player.defence, armorPenetration);
             player.hitTimer = player.hitCooldown;
+
+            isHit = true;
+            hitTimer = hitCooldown;
+
+            agent.enabled = false;
+            rb.isKinematic = false;
+
+            Vector3 moveDirection = rb.transform.position - player.transform.position;
+            rb.AddForce(new Vector3(moveDirection.normalized.x, 0, moveDirection.normalized.z) * player.knockback);
 
             //Vector3 moveDirection = player.rb.transform.position - transform.position;
             //player.rb.AddForce(new Vector3(moveDirection.normalized.x, 0, moveDirection.normalized.z) * knockback);

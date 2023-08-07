@@ -743,7 +743,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.605
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1261,7 +1261,8 @@ MonoBehaviour:
   hp: 100
   maxstamina: 100
   stamina: 100
-  staminaRegainSpeed: 1
+  staminaRegainSpeed: 10
+  staminaMultiplier: 0
   defence: 0
   hitColor: {r: 4, g: 0, b: 0, a: 0}
   defaultColor: {r: 1.7254902, g: 2.9960785, b: 0, a: 0}
@@ -1603,7 +1604,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.605
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3099,7 +3100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1809635646
 Transform:
   m_ObjectHideFlags: 0

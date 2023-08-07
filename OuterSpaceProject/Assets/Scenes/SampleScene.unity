@@ -1837,11 +1837,11 @@ MonoBehaviour:
   maxHealth: 100
   healthSlider: {fileID: 607778373}
   leftImage: {fileID: 2102739743}
-  leftFilled: {fileID: 21300000, guid: 40938f40d3897ee4c9d9fe29056b7389, type: 3}
-  leftEmpty: {fileID: 21300000, guid: 2b348c1ff455cd24f947b117645dd88f, type: 3}
+  leftFilled: {fileID: 44928701, guid: 4cb91004cf2eac648bb71cf591cef3d7, type: 3}
+  leftEmpty: {fileID: 2110189511, guid: 4cb91004cf2eac648bb71cf591cef3d7, type: 3}
   rightImage: {fileID: 463068452}
-  rightFilled: {fileID: 21300000, guid: a3e82b083b2bfff47826fe72f5ddbf48, type: 3}
-  rightEmpty: {fileID: 21300000, guid: 3f43165378401134dbe10d5a36eda059, type: 3}
+  rightFilled: {fileID: -834901560, guid: 4cb91004cf2eac648bb71cf591cef3d7, type: 3}
+  rightEmpty: {fileID: -479547159, guid: 4cb91004cf2eac648bb71cf591cef3d7, type: 3}
   Head: {fileID: 599574440}
   HeadNormal: {fileID: 21300000, guid: cf99e0a0a413094429a8a7e6c326ed41, type: 3}
   HeadDamaged: {fileID: 21300000, guid: 05b43fbcc4c656248b04653c972af9cb, type: 3}

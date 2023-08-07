@@ -1748,9 +1748,17 @@ PrefabInstance:
       value: -103.148
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 5720d11aa6d9a584388bb94938e145b5, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5720d11aa6d9a584388bb94938e145b5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7d243ad572de6974095dd1f72338e481, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 5720d11aa6d9a584388bb94938e145b5, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ee96e18a628494d4cb171a1f515e464f, type: 2}
     - target: {fileID: 919132149155446097, guid: 5720d11aa6d9a584388bb94938e145b5, type: 3}
       propertyPath: m_Name
       value: Rock (4)
@@ -3100,7 +3108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1809635646
 Transform:
   m_ObjectHideFlags: 0

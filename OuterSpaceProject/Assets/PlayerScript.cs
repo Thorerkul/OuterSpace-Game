@@ -156,7 +156,7 @@ public class PlayerScript : MonoBehaviour
         // Check if the dash button is pressed and the dash is not on cooldown.
         if (leftTrigger > 0.9f && leftTrigger > prev_LeftTrigger || Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && dashTimer <= 0f)
         {
-            if (stamina > 0)
+            if (stamina > dashStaminaUsage)
             {
                 // Get the last movement direction.
                 Vector3 dashDirection = new Vector3(lastMoveDir.x, 0f, lastMoveDir.y).normalized;
@@ -236,7 +236,7 @@ public class PlayerScript : MonoBehaviour
             horizontal = Input.GetAxisRaw("Horizontal") * speed;
         }
 
-        if (stamina <= 0)
+        if (stamina <= 10)
         {
             vertical /= 2;
             horizontal /= 2;

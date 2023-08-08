@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3661a50d31b339d438e44abc8649e0e8
+guid: 913b86f480c6fae458006979f6717d57
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -141,12 +141,159 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Play Button
+      name: Options_Menu_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 113
-        width: 30
+        x: 24
+        y: 15
+        width: 61
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28fffa718b58a7646b711ee657cb7c1f
+      internalID: -688556823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Options_Menu_Empty
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 72
+        width: 38
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fdddde07f15ded4b8fcc971da6feab5
+      internalID: 1317309824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Options_Menu_Full
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 78
+        width: 38
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fba6b161cda2b64ca99111ea610086a
+      internalID: -655415251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Options_Menu_Knob
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 76
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe6b6765a5396c34f9bce416996f3c9d
+      internalID: -222573333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Options_Menu_Frame
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 83
+        width: 40
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3cc2280d10ba1941a6ba9ab0bbbd4a3
+      internalID: -230829956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Options_name
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 59
+        width: 37
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cfea99ff12dd0b48bd3d2601213b586
+      internalID: -1235970815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound_name
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 72
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf34e7d721e1c874aa1702a4394c83e0
+      internalID: -1994179820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sound_Button
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 90
+        width: 35
         height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -155,62 +302,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d721a0de57bb95246bca621958338b9e
-      internalID: -1483129337
+      spriteID: 61f4a72360de5674c8a736d2a32e6f54
+      internalID: 1170276382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Options Button
+      name: Master
       rect:
         serializedVersion: 2
-        x: 49
-        y: 113
-        width: 46
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7786bbd71cba24149b2e150bc61fc5f6
-      internalID: -2090249005
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Quit Button
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 81
-        width: 30
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b02aaf45823c1994d98ad3493e94a99a
-      internalID: -321992371
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Back Button
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 81
-        width: 30
-        height: 14
+        x: 39
+        y: 92
+        width: 37
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,8 +323,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78b1a7d8f5830304c93fde37e4f99fb3
-      internalID: 638411462
+      spriteID: 42a0179aa43315842b65b59af23a168a
+      internalID: -299931893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Music
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 103
+        width: 28
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b3ccce7aab354d40a2a0206cc7f2d95
+      internalID: -327979188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SFX
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 116
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38a0d9a8029ad834a8a417c959af4a86
+      internalID: -1887847672
       vertices: []
       indices: 
       edges: []
@@ -227,7 +374,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a42f3a07a543fb8419b8baca747e7cbe
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -235,10 +382,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Play Button: -1483129337
-      Back Button: 638411462
-      Options Button: -2090249005
-      Quit Button: -321992371
+      Options_name: -1235970815
+      SFX: -1887847672
+      Options_Menu_Knob: -222573333
+      Options_Menu_Empty: 1317309824
+      Sound_Button: 1170276382
+      Sound_name: -1994179820
+      Master: -299931893
+      Options_Menu_Frame: -230829956
+      Music: -327979188
+      Options_Menu_0: -688556823
+      Options_Menu_Full: -655415251
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

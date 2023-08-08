@@ -1,10 +1,19 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
+
+public enum PlayerClass
+{
+    Melee = 0,
+    Ranged = 3,
+    Magic = 6,
+}
 
 public class PlayerScript : MonoBehaviour
 {
+    [Header("Class")]
+    public PlayerClass Class;
+
     [Header("Components")]
     public Rigidbody rb;
     public GameObject sword;

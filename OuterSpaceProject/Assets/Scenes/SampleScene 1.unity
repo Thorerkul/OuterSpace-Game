@@ -1241,6 +1241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77282957fe06af94f81f5decf0c9f1f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Class: 0
   rb: {fileID: 687530215}
   sword: {fileID: 484634255}
   wheel: {fileID: 61874476}
@@ -1261,7 +1262,8 @@ MonoBehaviour:
   hp: 100
   maxstamina: 100
   stamina: 100
-  staminaRegainSpeed: 1
+  staminaRegainSpeed: 10
+  staminaMultiplier: 1
   defence: 0
   hitColor: {r: 4, g: 0, b: 0, a: 0}
   defaultColor: {r: 1.7254902, g: 2.9960785, b: 0, a: 0}
@@ -3167,6 +3169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatFunctions: {fileID: 1357130715}
+  enemyType: 0
+  projectile: {fileID: 0}
   agent: {fileID: 1809635648}
   rb: {fileID: 1809635647}
   playerpos: {fileID: 687530208}
@@ -3179,6 +3183,8 @@ MonoBehaviour:
   isHit: 0
   hitCooldown: 0.25
   hitTimer: 0
+  projectileSpawnTime: 0
+  projectileSpawnTimer: 0
 --- !u!65 &1809635650
 BoxCollider:
   m_ObjectHideFlags: 0

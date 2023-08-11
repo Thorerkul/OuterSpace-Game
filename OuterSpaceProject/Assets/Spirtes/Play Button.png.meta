@@ -212,7 +212,7 @@ TextureImporter:
         width: 30
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -220,6 +220,27 @@ TextureImporter:
       bones: []
       spriteID: 78b1a7d8f5830304c93fde37e4f99fb3
       internalID: 638411462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Credits Button
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 97
+        width: 46
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a4c660cba256ee498a78740f13a6d15
+      internalID: 634610052
       vertices: []
       indices: 
       edges: []
@@ -239,6 +260,7 @@ TextureImporter:
       Back Button: 638411462
       Options Button: -2090249005
       Quit Button: -321992371
+      Credits Button: 634610052
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -317,7 +317,7 @@ TextureImporter:
         width: 37
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -338,7 +338,7 @@ TextureImporter:
         width: 28
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -359,7 +359,7 @@ TextureImporter:
         width: 17
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -367,6 +367,27 @@ TextureImporter:
       bones: []
       spriteID: 38a0d9a8029ad834a8a417c959af4a86
       internalID: -1887847672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CreditsName
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 44
+        width: 35
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f24cb95ca2dbdbd41886aa29a3353e53
+      internalID: 1284169630
       vertices: []
       indices: 
       edges: []
@@ -386,6 +407,7 @@ TextureImporter:
       SFX: -1887847672
       Options_Menu_Knob: -222573333
       Options_Menu_Empty: 1317309824
+      CreditsName: 1284169630
       Sound_Button: 1170276382
       Sound_name: -1994179820
       Master: -299931893

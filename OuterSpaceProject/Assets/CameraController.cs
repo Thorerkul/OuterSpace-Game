@@ -13,6 +13,11 @@ public class CameraController : MonoBehaviour
     public float camZoomMaxSize;
     public PixelizeFeature pixelf;
 
+    private void Start()
+    {
+        transform.position =  new Vector3(playerpos.position.x + offset.x, playerpos.position.y + offset.y, playerpos.position.z + offset.z);
+    }
+
     private void Update()
     {
         float vertical = Input.GetAxisRaw("DpadVertical");

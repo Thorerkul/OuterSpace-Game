@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenuScript : MonoBehaviour
+public class MenuBaseScript : MonoBehaviour
 {
-    public Button playButton;
+    public Button defaultButton;
 
     private void OnEnable()
     {
-        playButton.Select();
+        defaultButton.Select();
     }
 }

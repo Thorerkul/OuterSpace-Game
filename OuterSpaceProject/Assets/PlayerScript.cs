@@ -1,3 +1,4 @@
+using Unity.Burst.CompilerServices;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -31,6 +32,7 @@ public class PlayerScript : MonoBehaviour
     public float rotationSpeed;
     [Range(1, 360)]
     public int rotationSnaps;
+    [SerializeField] private float snapDistance = 0.5f;
 
     [HideInInspector]
     public bool isHit;
@@ -220,6 +222,20 @@ public class PlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        RaycastHit hit;
+        // Cast a ray downwards from the GameObject's position
+        if (Physics.Raycast(transform.position + new Vector3(0, 2f, 0), Vector3.down, out hit, 100f))
+        {
+            // Calculate the new position based on the hit point
+            Vector3 newPosition = new Vector3(0, hit.point.y + snapDistance, 0); // Adjust the 0.5f offset if needed
+
+            //Debug.Log(newPosition);
+
+            // Update the GameObject's position
+            transform.position = new Vector3(transform.position.x, newPosition.y, transform.position.z);
+            Debug.Log(transform.position);
+        }
+
         float vertical = 0;
         float horizontal = 0;
 

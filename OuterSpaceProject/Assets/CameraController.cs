@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
     public float camzoomSpeed;
     public float camZoomMaxSize;
     public PixelizeFeature pixelf;
+    [Range(0f, 1f)]
+    public float lerpAmount;
 
     private void Start()
     {
@@ -35,6 +37,8 @@ public class CameraController : MonoBehaviour
         pixelf.settings.screenHeight = (int)(cam.orthographicSize * (pixelamount / 10) * 2);
         //Debug.Log((int)(cam.orthographicSize * 144));
 
-        transform.position = new Vector3(playerpos.position.x + offset.x, playerpos.position.y + offset.y, playerpos.position.z + offset.z);
+        Vector3 targetPos = new Vector3(playerpos.position.x + offset.x, playerpos.position.y + offset.y, playerpos.position.z + offset.z);
+
+        transform.position = new Vector3(Mathf.Lerp(transform.position.x, targetPos.x, lerpAmount), Mathf.Lerp(transform.position.y, targetPos.y, lerpAmount), Mathf.Lerp(transform.position.z, targetPos.z, lerpAmount));
     }
 }

@@ -990,7 +990,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687530204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.505, z: 0}
+  m_LocalPosition: {x: 11.4, y: -0.557, z: 85.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1026,7 +1026,10 @@ MonoBehaviour:
   brakeSpeed: 0.8
   rotationSpeed: 50
   rotationSnaps: 360
-  snapDistance: -0.73
+  snapDistance: -0.61
+  ground:
+    serializedVersion: 2
+    m_Bits: 1024
   isHit: 0
   hitCooldown: 1
   hitTimer: 0
@@ -1410,6 +1413,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7046228403425358025, guid: 0a4ad8ecfe0d9bf46903acf2c155d63e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -7029948723529949830, guid: 0a4ad8ecfe0d9bf46903acf2c155d63e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4671925420836088789, guid: 0a4ad8ecfe0d9bf46903acf2c155d63e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -4450536759890801738, guid: 0a4ad8ecfe0d9bf46903acf2c155d63e, type: 3}
       propertyPath: m_Range
       value: 100
@@ -1430,9 +1445,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0a4ad8ecfe0d9bf46903acf2c155d63e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249110328877840610, guid: 0a4ad8ecfe0d9bf46903acf2c155d63e, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5783882096753140000, guid: 0a4ad8ecfe0d9bf46903acf2c155d63e, type: 3}
       propertyPath: m_Range
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7576951281701353771, guid: 0a4ad8ecfe0d9bf46903acf2c155d63e, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a4ad8ecfe0d9bf46903acf2c155d63e, type: 3}
@@ -1579,6 +1606,7 @@ MonoBehaviour:
   camzoomSpeed: 5
   camZoomMaxSize: 25
   pixelf: {fileID: -5987806754423998584, guid: f2bf66db9e1a23643bdc59b8b3a6d845, type: 2}
+  lerpAmount: 0.01
 --- !u!1 &1021591656
 GameObject:
   m_ObjectHideFlags: 0
@@ -2425,7 +2453,7 @@ GameObject:
   - component: {fileID: 1773264493}
   - component: {fileID: 1773264495}
   - component: {fileID: 1773264494}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

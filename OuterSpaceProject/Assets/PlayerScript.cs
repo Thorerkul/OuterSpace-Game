@@ -33,6 +33,7 @@ public class PlayerScript : MonoBehaviour
     [Range(1, 360)]
     public int rotationSnaps;
     [SerializeField] private float snapDistance = 0.5f;
+    public LayerMask ground;
 
     [HideInInspector]
     public bool isHit;
@@ -222,9 +223,10 @@ public class PlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         RaycastHit hit;
         // Cast a ray downwards from the GameObject's position
-        if (Physics.Raycast(transform.position + new Vector3(0, 2f, 0), Vector3.down, out hit, 100f))
+        if (Physics.BoxCast(transform.position + new Vector3(0, 5, 0), new Vector3(0.5f, 0.5f, 0.5f), Vector3.down, out hit, Quaternion.identity, 100f, ground)) 
         {
             // Calculate the new position based on the hit point
             Vector3 newPosition = new Vector3(0, hit.point.y + snapDistance, 0); // Adjust the 0.5f offset if needed
@@ -302,19 +304,19 @@ public class PlayerScript : MonoBehaviour
 
         if (vertical != 0)
         {
-            rb.velocity = new Vector3(rb.velocity.x, 0, vertical);
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, vertical);
         }
         else
         {
-            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z * brakeSpeed);
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z * brakeSpeed);
         }
         if (horizontal != 0)
         {
-            rb.velocity = new Vector3(horizontal, 0, rb.velocity.z);
+            rb.velocity = new Vector3(horizontal, rb.velocity.y, rb.velocity.z);
         }
         else
         {
-            rb.velocity = new Vector3(rb.velocity.x * brakeSpeed, 0, rb.velocity.z);
+            rb.velocity = new Vector3(rb.velocity.x * brakeSpeed, rb.velocity.y, rb.velocity.z);
         }
         //transform.localPosition += new Vector3(0, 0, vertical) * Time.deltaTime;
     }

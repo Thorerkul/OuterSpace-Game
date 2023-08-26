@@ -275,7 +275,6 @@ public class PlayerScript : MonoBehaviour
 
             // Update the GameObject's position
             transform.position = new Vector3(transform.position.x, newPosition.y, transform.position.z);
-            Debug.Log(transform.position);
         }
 
         float vertical = 0;

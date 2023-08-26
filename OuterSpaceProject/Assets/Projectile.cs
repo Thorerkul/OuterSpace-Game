@@ -43,5 +43,11 @@ public class Projectile : MonoBehaviour
             player.hitTimer = player.hitCooldown;
             Destroy(gameObject);
         }
+
+        if (other.gameObject.tag == "PlayerShield")
+        {
+            // Destroy the projectile.
+            Destroy(gameObject);
+        }
     }
 }

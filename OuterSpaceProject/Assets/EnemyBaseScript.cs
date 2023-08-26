@@ -128,6 +128,8 @@ public class EnemyBaseScript : MonoBehaviour
     {
         if (other.gameObject.layer == 9 && player.isSwinging)
         {
+            player.stamina += player.staminaRegainSpeed * player.staminaMultiplier;
+
             hp -= combatFunctions.damageCalculator(player.damage, defence, player.armorPenetration);
 
             isHit = true;
@@ -138,6 +140,20 @@ public class EnemyBaseScript : MonoBehaviour
 
             Vector3 moveDirection = rb.transform.position - player.transform.position;
             rb.AddForce(new Vector3(moveDirection.normalized.x, 0, moveDirection.normalized.z) * player.knockback);
+        }
+
+        if (other.gameObject.tag == "PlayerShield")
+        {
+            hp -= combatFunctions.damageCalculator(player.damage / 4, defence, player.armorPenetration);
+
+            isHit = true;
+            hitTimer = hitCooldown;
+
+            agent.enabled = false;
+            rb.isKinematic = false;
+
+            Vector3 moveDirection = rb.transform.position - player.transform.position;
+            rb.AddForce(new Vector3(moveDirection.normalized.x, 0, moveDirection.normalized.z) * player.knockback / 4);
         }
     }
 }

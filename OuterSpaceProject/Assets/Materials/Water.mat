@@ -20,6 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _RefractionNormal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -35,20 +39,30 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0.8
+    - _Distance: 5.64
     - _FoamOffset: 5.13
     - _FoamWaveSize: 21.77
     - _FoamWaveSpeed: 0.25
+    - _HighFrequency: 1
+    - _NormalStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _RefractionSpeed: 1
+    - _RefractionStrength: 1
     - _Ripple2Slimness: 1.2
     - _RippleDensity: 100
     - _RippleSlimness: 10
     - _RippleSpeed: 5
+    - _Smoothness: 0
     - _WaveSpeed: 0.1
     m_Colors:
     - _Base_Color: {r: 0.24800003, g: 0.5311059, b: 1, a: 0}
+    - _DeepColor: {r: 0.121568635, g: 0.1764706, b: 0.32156864, a: 0}
     - _FoamColor: {r: 2, g: 2, b: 2, a: 0}
+    - _RefractionScale: {r: 1, g: 1, b: 0, a: 0}
     - _RippleColor: {r: 0.6901961, g: 1.215686, b: 1.890196, a: 0}
+    - _SurfaceColor: {r: 0.4156863, g: 0.7568628, b: 0.79215693, a: 0}
+    - _UV: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5665931355220016876
 MonoBehaviour:

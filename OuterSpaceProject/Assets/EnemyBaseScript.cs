@@ -21,6 +21,8 @@ public class IkInfo
     public bool isActive;
     public bool prevIsActive;
     public float currentLerp;
+    public float startLerpTime;
+    public float currentLerpTime;
 }
 
 public class EnemyBaseScript : MonoBehaviour
@@ -53,7 +55,9 @@ public class EnemyBaseScript : MonoBehaviour
 
     public List<IkInfo> IkTargets;
     public float safeRadius;
-
+    [Range(0,1)]
+    public float lerpClamp;
+    //
     // Update is called once per frame
     void Update()
     {
@@ -109,6 +113,7 @@ public class EnemyBaseScript : MonoBehaviour
 
     void IK()
     {
+        /*
         foreach (IkInfo t in IkTargets)
         {
             float distance = Vector3.Distance(t.transform.position, t.targetTransform.position);
@@ -139,15 +144,20 @@ public class EnemyBaseScript : MonoBehaviour
 
         if (t.isActive)
         {
+                if (t.currentLerp <= 0)
+                {
+                    t.currentLerp = 0;
+                    t.isActive = false;
+                }
             RaycastHit hit;
             if (Physics.Raycast(t.transform.position + (Vector3.up * 3), Vector3.down, out hit, 100f, obstacles))
             {
                     // Move the object to the position where the raycast hit the ground
                 t.transform.position = hit.point;
             }
-            t.transform.position = Vector3.Lerp(t.targetTransform.position, t.transform.position, t.currentLerp) + (Vector3.up * 1);
+                t.transform.position = t.targetTransform.position;
             t.currentLerp -= Time.deltaTime;
-                //
+                
         }
 
             /*
@@ -156,7 +166,62 @@ public class EnemyBaseScript : MonoBehaviour
             {
                 // Move the object to the position where the raycast hit the ground
                 t.transform.position = hit.point;
-            }*/
+            }
+        }*/
+
+        foreach (IkInfo t in IkTargets)
+        {
+            float distance = Vector3.Distance(t.transform.position, t.targetTransform.position);
+
+            if (distance > safeRadius)
+            {
+                Debug.Log(distance);
+
+                bool isOnlyActive = true;
+
+                if (t.isActive)
+                {
+                    foreach (IkInfo t2 in IkTargets)
+                    {
+                        if (t2 != t)
+                        {
+                            if (t2.isActive)
+                            {
+                                isOnlyActive = false;
+                            }
+                        }
+                    }
+                }
+                t.isActive = isOnlyActive;
+
+            }
+
+            if (!t.isActive)
+            {
+                t.startLerpTime = Mathf.Infinity;
+                t.currentLerp = lerpClamp;
+            } else
+            {
+                if (t.startLerpTime == Mathf.Infinity)
+                {
+                    t.startLerpTime = Time.timeSinceLevelLoad;
+                    t.currentLerp = 1;
+                }
+                else if (t.startLerpTime != 0)
+                {
+                    t.currentLerp -= Time.deltaTime;
+                    t.transform.position = Vector3.Lerp(t.targetTransform.position, t.transform.position, t.currentLerp);
+                }
+            }
+
+            if (t.currentLerp < lerpClamp)
+            {
+                t.currentLerp = lerpClamp;
+                t.isActive = false;
+                t.startLerpTime = Mathf.Infinity;
+            }
+
+            t.currentLerpTime = Time.timeSinceLevelLoad;
         }
     }
 

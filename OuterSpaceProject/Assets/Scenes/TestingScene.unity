@@ -6971,9 +6971,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776386237}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.1, z: 0}
-  m_LocalScale: {x: 24.237, y: 1, z: 24.237}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: -8.7, z: 0}
+  m_LocalScale: {x: 25, y: 25, z: 25}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 353251929}
   m_Father: {fileID: 0}
@@ -7228,7 +7228,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -10
+  near clip plane: 0.01
   far clip plane: 5000
   field of view: 60
   orthographic: 1
@@ -7256,7 +7256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: -4.2, y: 16.5, z: 8.52}
+  m_LocalPosition: {x: -4.2, y: 16.5, z: -116.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7286,7 +7286,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 1
@@ -8709,48 +8709,48 @@ MonoBehaviour:
   - m_Transform: {fileID: 1147467938}
     m_Style:
       shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 0, g: 1, b: 0.05740881, a: 0.5}
-      size: 1
+      color: {r: 0, g: 1, b: 0.05740881, a: 0}
+      size: 0.01
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
   - m_Transform: {fileID: 762442674}
     m_Style:
       shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 0, g: 1, b: 0.05740881, a: 0.5}
-      size: 1
+      color: {r: 0, g: 1, b: 0.05740881, a: 0}
+      size: 0.01
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
   - m_Transform: {fileID: 2124142253}
     m_Style:
       shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 0, g: 1, b: 0.05740881, a: 0.5}
-      size: 1
+      color: {r: 0, g: 1, b: 0.05740881, a: 0}
+      size: 0.01
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
   - m_Transform: {fileID: 799922609}
     m_Style:
       shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 0, g: 1, b: 0.05740881, a: 0.5}
-      size: 1
+      color: {r: 0, g: 1, b: 0.05740881, a: 0}
+      size: 0.01
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
   - m_Transform: {fileID: 1577686126}
     m_Style:
       shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 0, g: 1, b: 0.05740881, a: 0.5}
-      size: 1
+      color: {r: 0, g: 1, b: 0.05740881, a: 0}
+      size: 0.01
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
   - m_Transform: {fileID: 2046285303}
     m_Style:
       shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
-      color: {r: 0, g: 1, b: 0.05740881, a: 0.5}
-      size: 1
+      color: {r: 0, g: 1, b: 0.05740881, a: 0}
+      size: 0.01
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
@@ -8758,7 +8758,7 @@ MonoBehaviour:
     m_Style:
       shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
       color: {r: 0, g: 0.13595343, b: 1, a: 0.5}
-      size: 1
+      size: 0.5
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
@@ -8766,7 +8766,7 @@ MonoBehaviour:
     m_Style:
       shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
       color: {r: 0, g: 0.13595343, b: 1, a: 0.5}
-      size: 1
+      size: 0.5
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
@@ -8774,7 +8774,7 @@ MonoBehaviour:
     m_Style:
       shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
       color: {r: 0, g: 0.13595343, b: 1, a: 0.5}
-      size: 1
+      size: 0.5
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
@@ -8782,7 +8782,7 @@ MonoBehaviour:
     m_Style:
       shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
       color: {r: 0, g: 0.13595343, b: 1, a: 0.5}
-      size: 1
+      size: 0.5
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
@@ -8790,7 +8790,7 @@ MonoBehaviour:
     m_Style:
       shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
       color: {r: 0, g: 0.13595343, b: 1, a: 0.5}
-      size: 1
+      size: 0.5
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
@@ -8798,7 +8798,7 @@ MonoBehaviour:
     m_Style:
       shape: {fileID: 4300000, guid: c6793350c150f456688e39a81f97364a, type: 2}
       color: {r: 0, g: 0.13595343, b: 1, a: 0.5}
-      size: 1
+      size: 0.5
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
@@ -9632,7 +9632,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809635645}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: -1372625422
   m_Radius: 1.04
   m_Speed: 3.5
@@ -9689,32 +9689,45 @@ MonoBehaviour:
     isActive: 0
     prevIsActive: 0
     currentLerp: 0
+    startLerpTime: 0
+    currentLerpTime: 0
   - transform: {fileID: 1808764447}
     targetTransform: {fileID: 1581212464}
     isActive: 0
     prevIsActive: 0
     currentLerp: 0
+    startLerpTime: 0
+    currentLerpTime: 0
   - transform: {fileID: 253972559}
     targetTransform: {fileID: 1887559357}
     isActive: 0
     prevIsActive: 0
     currentLerp: 0
+    startLerpTime: 0
+    currentLerpTime: 0
   - transform: {fileID: 2085030960}
     targetTransform: {fileID: 1112436669}
     isActive: 0
     prevIsActive: 0
     currentLerp: 0
+    startLerpTime: 0
+    currentLerpTime: 0
   - transform: {fileID: 500798535}
     targetTransform: {fileID: 301298202}
     isActive: 0
     prevIsActive: 0
     currentLerp: 0
+    startLerpTime: 0
+    currentLerpTime: 0
   - transform: {fileID: 608490332}
     targetTransform: {fileID: 1737044785}
     isActive: 0
     prevIsActive: 0
     currentLerp: 0
+    startLerpTime: 0
+    currentLerpTime: 0
   safeRadius: 0.5
+  lerpClamp: 0.8
 --- !u!65 &1809635650
 BoxCollider:
   m_ObjectHideFlags: 0

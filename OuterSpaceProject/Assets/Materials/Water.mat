@@ -41,23 +41,28 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.8
+    - _Alpha: 0.9
     - _Depth_Fade: 568
     - _Distance: 4.9
     - _FoamAmount: 1
     - _FoamCutoff: 2
+    - _FoamOctave: 1.75
     - _FoamOffset: 5.13
-    - _FoamScale: 103
+    - _FoamScale: 0.62
     - _FoamSpeed: 1
     - _FoamWaveSize: 21.77
     - _FoamWaveSpeed: 0.25
+    - _Foam_Amount: 0.21
+    - _Foam_Multiplier: 1
     - _Foam_Width: 1
     - _Height: 0.01
+    - _Height_Multiplier: 20
     - _HighFrequency: 1
     - _LerpHigh: 0.1
     - _Lerplow: 1
-    - _Noise_Scale: 1.5
+    - _Noise_Scale: 13.91
     - _NormalStrength: 1
+    - _Octave_Factor: 2
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RefractionSpeed: 0.075
@@ -66,19 +71,21 @@ Material:
     - _RippleDensity: 100
     - _RippleSlimness: 10
     - _RippleSpeed: 5
-    - _Smoothness: 0.6
+    - _Scroll_Speed: 0.025
+    - _Smoothness: 0
     - _Water_Scroll_Speed: 0.14
     - _WaveAmplitude: 0.05
     - _WaveSpeed: 0.05
+    - _Wave_Height: 0.05
     m_Colors:
     - _Base_Color: {r: 0.24800003, g: 0.5311059, b: 1, a: 0}
-    - _Deep: {r: 0.47450984, g: 0.77647066, b: 0.8470589, a: 1}
+    - _Deep: {r: 0.08223568, g: 0.28775394, b: 0.5283019, a: 1}
     - _DeepColor: {r: 0.015686275, g: 0.23137257, b: 0.41960788, a: 0}
     - _FoamColor: {r: 2, g: 2, b: 2, a: 0}
     - _Foam_Color: {r: 0, g: 0, b: 0, a: 0}
     - _RefractionScale: {r: 10, g: 10, b: 0, a: 0}
     - _RippleColor: {r: 0.6901961, g: 1.215686, b: 1.890196, a: 0}
-    - _Shallow: {r: 0.14117648, g: 0.36078432, b: 0.61960787, a: 0}
+    - _Shallow: {r: 0.47450984, g: 0.77647066, b: 0.8470589, a: 1}
     - _SurfaceColor: {r: 0, g: 0.6313726, b: 0.5372549, a: 0}
     - _UV: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

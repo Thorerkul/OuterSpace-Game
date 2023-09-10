@@ -24,6 +24,7 @@ public class PlayerScript : MonoBehaviour
     public Material crystalMaterial;
     public Material swordMaterial;
     public Camera cam;
+    public CameraController camcontroller;
     public HealthManager healthManager;
     [Header("Movement")]
     public float speed;
@@ -372,5 +373,21 @@ public class PlayerScript : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x * brakeSpeed, rb.velocity.y, rb.velocity.z);
         }
         //transform.localPosition += new Vector3(0, 0, vertical) * Time.deltaTime;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "CameraBounds")
+        {
+            camcontroller.shouldFollowPlayer = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "CameraBounds")
+        {
+            camcontroller.shouldFollowPlayer = false;
+        }
     }
 }

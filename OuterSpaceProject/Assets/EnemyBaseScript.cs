@@ -23,6 +23,9 @@ public class IkInfo
     public float currentLerp;
     public float startLerpTime;
     public float currentLerpTime;
+
+    public int oppositeID;
+    public bool oppositeActive;
 }
 
 public class EnemyBaseScript : MonoBehaviour
@@ -54,7 +57,7 @@ public class EnemyBaseScript : MonoBehaviour
     public float snapDistance;
 
     public List<IkInfo> IkTargets;
-    public float safeRadius;
+    public Vector2 safeRadius;
     [Range(0,1)]
     public float lerpClamp;
     //
@@ -171,29 +174,34 @@ public class EnemyBaseScript : MonoBehaviour
 
         foreach (IkInfo t in IkTargets)
         {
+            Ray ray = new Ray(t.targetTransform.position + Vector3.up, -t.targetTransform.up);
+            RaycastHit hit;
+
+            // Perform the raycast and check if it hits an object on the specified layer.
+            if (Physics.Raycast(ray, out hit, 100f, ground))
+            {
+                // Set the object's position to the hit point.
+                t.targetTransform.position = hit.point;
+            }
+
             float distance = Vector3.Distance(t.transform.position, t.targetTransform.position);
 
-            if (distance > safeRadius)
+            if (distance > safeRadius.x)
             {
-                Debug.Log(distance);
+                t.isActive = true;
+            }
 
-                bool isOnlyActive = true;
+            if (distance < safeRadius.y)
+            {
+                t.isActive = false;
+            }
 
-                if (t.isActive)
-                {
-                    foreach (IkInfo t2 in IkTargets)
-                    {
-                        if (t2 != t)
-                        {
-                            if (t2.isActive)
-                            {
-                                isOnlyActive = false;
-                            }
-                        }
-                    }
-                }
-                t.isActive = isOnlyActive;
+            t.oppositeActive = IkTargets[t.oppositeID].isActive;
 
+            
+            if (t.oppositeActive && t.isActive)
+            {
+                t.isActive = false;
             }
 
             if (!t.isActive)
@@ -222,6 +230,7 @@ public class EnemyBaseScript : MonoBehaviour
             }
 
             t.currentLerpTime = Time.timeSinceLevelLoad;
+            
         }
     }
 

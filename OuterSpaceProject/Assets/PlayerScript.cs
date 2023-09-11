@@ -26,6 +26,7 @@ public class PlayerScript : MonoBehaviour
     public Camera cam;
     public CameraController camcontroller;
     public HealthManager healthManager;
+    public PlayerHUDController hud;
     [Header("Movement")]
     public float speed;
     [Range(0.75f, 1f)]
@@ -141,6 +142,12 @@ public class PlayerScript : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("RightJoystickHorizontal");
         float verticalInput = Input.GetAxisRaw("RightJoystickVertical");
 
+        if (hud.isShowingMinimap)
+        {
+            horizontalInput = 0;
+            verticalInput = 0;
+        }
+
         //Debug.Log(new Vector2(horizontalInput, verticalInput));
 
         // Check if the joystick input is significant enough to rotate the GameObject.
@@ -187,7 +194,7 @@ public class PlayerScript : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) || Input.GetAxisRaw("RightTrigger") > 0.9f && Input.GetAxisRaw("RightTrigger") != prev_RightTrigger)
             {
-                if (forceField.activeSelf == false && canUseStamina)
+                if (forceField.activeSelf == false && canUseStamina && !hud.isShowingMinimap)
                 {
                     animator.SetTrigger("Swing");
                 }
@@ -207,6 +214,10 @@ public class PlayerScript : MonoBehaviour
 
         float leftTrigger = Input.GetAxisRaw("LeftTrigger");
 
+        if (hud.isShowingMinimap)
+        {
+            leftTrigger = 0;
+        }
 
         // Check if the dash button is pressed and the dash is not on cooldown.
         if (leftTrigger > 0.9f && leftTrigger > prev_LeftTrigger || Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && dashTimer <= 0f)
@@ -291,6 +302,12 @@ public class PlayerScript : MonoBehaviour
             horizontal = Input.GetAxisRaw("Horizontal") * speed;
         }
 
+        if (hud.isShowingMinimap)
+        {
+            horizontal = 0;
+            vertical = 0;
+        }
+
         if (stamina <= 10)
         {
             vertical /= 2;
@@ -303,7 +320,7 @@ public class PlayerScript : MonoBehaviour
             horizontal = 0;
         }
 
-        if (Input.GetButton("ShieldButton") && stamina > 0 && canUseStamina)
+        if (Input.GetButton("ShieldButton") && stamina > 0 && canUseStamina && !hud.isShowingMinimap)
         {
             forceField.SetActive(true);
             stamina -= Time.deltaTime * shieldStaminaDrain;

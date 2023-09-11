@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerShield
   - CameraBounds
+  - Collision
   layers:
   - Default
   - TransparentFX

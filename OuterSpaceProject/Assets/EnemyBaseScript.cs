@@ -56,11 +56,14 @@ public class EnemyBaseScript : MonoBehaviour
 
     public float snapDistance;
 
+    public bool isAtTarget;
+
     public List<IkInfo> IkTargets;
     public Vector2 safeRadius;
     [Range(0,1)]
     public float lerpClamp;
-    //
+    public Vector3 legoffset;
+    
     // Update is called once per frame
     void Update()
     {
@@ -78,9 +81,13 @@ public class EnemyBaseScript : MonoBehaviour
             if (enemyType == EnemyType.Melee)
             {
                 agent.SetDestination(playerpos.position);
+                isAtTarget = transform.position == playerpos.position;
             } else if (enemyType == EnemyType.Ranged)
             {
-                agent.SetDestination(playerpos.position + new Vector3(0, 0, 10));
+                agent.SetDestination(playerpos.position + new Vector3(0, 0, 5));
+
+                isAtTarget = transform.position == playerpos.position + new Vector3(0, 0, 5);
+
                 if (projectileSpawnTimer <= 0)
                 {
                     projectileSpawnTimer = projectileSpawnTime;
@@ -95,7 +102,7 @@ public class EnemyBaseScript : MonoBehaviour
 
         RaycastHit hit;
         // Cast a ray downwards from the GameObject's position
-        if (Physics.BoxCast(transform.position + (Vector3.up * 5), new Vector3(1f, 1f, 1f), Vector3.down, out hit, Quaternion.identity, 100f, ground))
+        if (Physics.BoxCast(transform.position + (Vector3.up * 2), new Vector3(1f, 1f, 1f), Vector3.down, out hit, Quaternion.identity, 100f, ground))
         {
             // Calculate the new position based on the hit point
             Vector3 newPosition = new Vector3(0, hit.point.y + snapDistance, 0); // Adjust the 0.5f offset if needed
@@ -181,7 +188,7 @@ public class EnemyBaseScript : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100f, ground))
             {
                 // Set the object's position to the hit point.
-                t.targetTransform.position = hit.point;
+                //t.targetTransform.position = hit.point;
             }
 
             float distance = Vector3.Distance(t.transform.position, t.targetTransform.position);
@@ -218,7 +225,7 @@ public class EnemyBaseScript : MonoBehaviour
                 else if (t.startLerpTime != 0)
                 {
                     t.currentLerp -= Time.deltaTime;
-                    t.transform.position = Vector3.Lerp(t.targetTransform.position, t.transform.position, t.currentLerp);
+                    t.transform.position = Vector3.Lerp(t.targetTransform.position, t.transform.position + Vector3.up * (t.currentLerp < 0.85f ? 0.0f : legoffset.y), t.currentLerp);
                 }
             }
 

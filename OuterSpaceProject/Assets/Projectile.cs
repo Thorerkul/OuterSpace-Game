@@ -49,9 +49,20 @@ public class Projectile : MonoBehaviour
             // Destroy the projectile.
             Destroy(gameObject);
         }
+    }
 
-        if (other.gameObject.layer == 6)
+    private void OnCollisionStay(Collision collision)
+    {
+        Debug.Log("coll");
+        if (collision.gameObject.layer == 6)
         {
+            Debug.Log("dead");
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.tag == "Collision")
+        {
+            Debug.Log("dead");
             Destroy(gameObject);
         }
     }
